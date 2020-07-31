@@ -16,14 +16,7 @@ pipeline {
             steps {
                 bat ' mvn clean test'
 		     // publish html
-        publishHTML target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: false,
-            keepAll: true,
-            reportDir: 'reports',
-            reportFiles: 'summary.html',
-            reportName: 'Munit Report'
-          ]
+       
             }
         }
 	}
@@ -33,10 +26,26 @@ pipeline {
 		success {
 		  bat "echo 'success'"
 		  // Send Success Email 
+			 publishHTML target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: 'reports',
+            reportFiles: 'summary.html',
+            reportName: 'Munit Report'
+          ]
 		}
 		failure {
 		  bat "echo 'failure'"
-		  // Send Failure Email 
+		  // Send Failure Email
+	   publishHTML target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: 'reports',
+            reportFiles: 'summary.html',
+            reportName: 'Munit Report'
+          ]
 		}
 	}
 }
