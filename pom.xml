@@ -45,7 +45,7 @@
                 <configuration>
                     <coverage>
                         <runCoverage>true</runCoverage>
-						<failBuild>false</failBuild>
+						<failBuild>true</failBuild>
                         <requiredApplicationCoverage>75</requiredApplicationCoverage>
                         <formats>
 		            <format>console</format>
